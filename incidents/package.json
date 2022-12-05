@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@sap/cds": "^6",
+    "@sap/cds-mtxs": "^1",
     "express": "^4"
   },
   "devDependencies": {
@@ -10,7 +11,18 @@
   },
   "cds": {
     "requires": {
-      "db": "sql"
+      "db": "sql-mt",
+      "multitenancy": true,
+      "toggles": true,
+      "extensibility": true,
+      "auth": {
+        "users": {
+          "bob": {
+            "tenant": "t1-ext",
+            "roles": ["cds.ExtensionDeveloper"]
+          }
+        }
+      }
     }
   },
   "private": true
